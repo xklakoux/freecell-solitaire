@@ -1,0 +1,266 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_0"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Game" >
+
+    <LinearLayout
+        android:id="@+id/slotWinning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/slotPiles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingRight="@dimen/win_slot_margin_half"
+            android:splitMotionEvents="false"
+            android:weightSum="4" >
+
+            <com.xklakoux.freecell.CellPile
+                android:id="@+id/slotPile0"
+                style="@style/winSlotPiles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <com.xklakoux.freecell.CellPile
+                android:id="@+id/slotPile1"
+                style="@style/winSlotPiles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <com.xklakoux.freecell.CellPile
+                android:id="@+id/slotPile2"
+                style="@style/winSlotPiles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <com.xklakoux.freecell.CellPile
+                android:id="@+id/slotPile3"
+                style="@style/winSlotPiles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/winningPiles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/win_slot_margin_half"
+            android:splitMotionEvents="false"
+            android:weightSum="4" >
+
+            <com.xklakoux.freecell.FoundationPile
+                android:id="@+id/winningPile0"
+                style="@style/winSlotPiles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <com.xklakoux.freecell.FoundationPile
+                android:id="@+id/winningPile1"
+                style="@style/winSlotPiles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <com.xklakoux.freecell.FoundationPile
+                android:id="@+id/winningPile2"
+                style="@style/winSlotPiles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <com.xklakoux.freecell.FoundationPile
+                android:id="@+id/winningPile3"
+                style="@style/winSlotPiles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollPiles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/slotWinning"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/piles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:splitMotionEvents="false"
+            android:weightSum="8" >
+
+            <com.xklakoux.freecell.Pile
+                android:id="@+id/pile0"
+                style="@style/piles"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingRight="@dimen/card_side_margin_half" />
+
+            <com.xklakoux.freecell.Pile
+                android:id="@+id/pile1"
+                style="@style/piles"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/card_side_margin_half"
+                android:paddingRight="@dimen/card_side_margin_half" />
+
+            <com.xklakoux.freecell.Pile
+                android:id="@+id/pile2"
+                style="@style/piles"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/card_side_margin_half"
+                android:paddingRight="@dimen/card_side_margin_half" />
+
+            <com.xklakoux.freecell.Pile
+                android:id="@+id/pile3"
+                style="@style/piles"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/card_side_margin_half"
+                android:paddingRight="@dimen/card_side_margin_half" />
+
+            <com.xklakoux.freecell.Pile
+                android:id="@+id/pile4"
+                style="@style/piles"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/card_side_margin_half"
+                android:paddingRight="@dimen/card_side_margin_half" />
+
+            <com.xklakoux.freecell.Pile
+                android:id="@+id/pile5"
+                style="@style/piles"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/card_side_margin_half"
+                android:paddingRight="@dimen/card_side_margin_half" />
+
+            <com.xklakoux.freecell.Pile
+                android:id="@+id/pile6"
+                style="@style/piles"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/card_side_margin_half"
+                android:paddingRight="@dimen/card_side_margin_half" />
+
+            <com.xklakoux.freecell.Pile
+                android:id="@+id/pile7"
+                style="@style/piles"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/card_side_margin_half" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/winner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/you_won"
+        android:textColor="@color/red"
+        android:textSize="40sp"
+        android:visibility="invisible" />
+
+    <com.xklakoux.freecell.Deck
+        android:id="@+id/deck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:adjustViewBounds="true"
+        android:visibility="invisible" />
+
+    <RelativeLayout
+        android:id="@+id/stats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin" >
+
+        <LinearLayout
+            android:id="@+id/LinearLayout02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true" >
+
+            <TextView
+                android:id="@+id/TextView03"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Moves:" />
+
+            <TextView
+                android:id="@+id/tvMoves"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true" >
+
+            <Chronometer
+                android:id="@+id/tvTimeElapsed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:format="Timer:%s"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Score:" />
+
+            <TextView
+                android:id="@+id/tvScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="500"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
