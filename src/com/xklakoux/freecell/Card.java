@@ -151,17 +151,17 @@ public class Card extends ImageView {
 			for (int i = index + 1; i < owner.getChildCount(); i++) {
 				Card card = (Card) owner.getChildAt(i);
 
-				if (!((referenceCard.getSuit() == Suit.CLUBS || referenceCard.getSuit() == Suit.SPADES) && (card
-						.getSuit() == Suit.HEARTS || card.getSuit() == Suit.DIAMONDS))
-						&& !((referenceCard.getSuit() == Suit.HEARTS || referenceCard.getSuit() == Suit.DIAMONDS) && (card
-								.getSuit() == Suit.SPADES || card.getSuit() == Suit.CLUBS))) {
-					if (referenceCard.getNumber().getId() != card.getNumber().getId() + 1) {
-						return false;
+				if (((referenceCard.getSuit() == Suit.CLUBS || referenceCard.getSuit() == Suit.SPADES) && (card.getSuit() == Suit.HEARTS || card.getSuit() == Suit.DIAMONDS))
+						|| ((referenceCard.getSuit() == Suit.HEARTS || referenceCard.getSuit() == Suit.DIAMONDS) && (card.getSuit() == Suit.SPADES || card.getSuit() == Suit.CLUBS))) {
+					if (referenceCard.getNumber().getId() == card.getNumber().getId()+1) {
+						referenceCard = card;
+						continue;
 					}
 				}
-				referenceCard = card;
+				return false;
 			}
 			return true;
+
 
 		}
 
