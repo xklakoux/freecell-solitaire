@@ -83,7 +83,7 @@ public class Pile extends BasePile {
 
 		Game.getStatsManager().updateMoves(StatsManager.MOVE);
 
-		if (Game.getSettings().getBoolean(Constant.SETT_SOUNDS, true)) {
+		if (Game.getSettings().getBoolean(SettingsConstant.SOUNDS, true)) {
 			Game.playSound(Game.SOUND_PUT_CARD);
 		}
 	}
@@ -96,7 +96,7 @@ public class Pile extends BasePile {
 		for (i = lastIndex - 1; i >= 0; i--) {
 			Card card = getCardAt(i);
 			if (!fitOnEachother(card, referenceCard)) {
-				if (Game.getSettings().getBoolean(Constant.SETT_HINTS, true)) {
+				if (Game.getSettings().getBoolean(SettingsConstant.HINTS, true)) {
 					for (int j = i; j >= 0; j--) {
 						Card c = getCardAt(j);
 						if (c.isFaceup()) {

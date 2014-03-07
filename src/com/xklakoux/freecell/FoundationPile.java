@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import com.xklakoux.freecell.enums.Number;
+import com.xklakoux.freecell.enums.Rank;
 
 /**
  * @author artur
@@ -74,7 +74,7 @@ public class FoundationPile extends BasePile {
 
 		Game.getStatsManager().updateMoves(StatsManager.MOVE);
 
-		if (Game.getSettings().getBoolean(Constant.SETT_SOUNDS, true)) {
+		if (Game.getSettings().getBoolean(SettingsConstant.SOUNDS, true)) {
 			Game.playSound(Game.SOUND_PUT_CARD);
 		}
 	}
@@ -117,7 +117,7 @@ public class FoundationPile extends BasePile {
 				return false;
 			}
 		} else {
-			if (cardOver.getNumber() == Number.ACE) {
+			if (cardOver.getNumber() == Rank.ACE) {
 				return true;
 			}
 		}

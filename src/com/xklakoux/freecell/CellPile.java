@@ -63,7 +63,7 @@ public class CellPile extends BasePile {
 
 		Game.getStatsManager().updateMoves(StatsManager.MOVE);
 
-		if (Game.getSettings().getBoolean(Constant.SETT_SOUNDS, true)) {
+		if (Game.getSettings().getBoolean(SettingsConstant.SOUNDS, true)) {
 			Game.playSound(Game.SOUND_PUT_CARD);
 		}
 	}

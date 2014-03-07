@@ -22,7 +22,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
-import com.xklakoux.freecell.enums.Number;
+import com.xklakoux.freecell.enums.Rank;
 import com.xklakoux.freecell.enums.Suit;
 
 /**
@@ -34,13 +34,13 @@ public class Card extends ImageView {
 	public final String TAG = Card.class.getSimpleName();
 
 	private Suit suit;
-	private Number number;
+	private Rank number;
 	private boolean faceup = false;
 	private final int reverseResourceId = (Utils.getResId(
-			"reverse_" + Game.getSettings().getString(Constant.SETT_REVERSE, Constant.DEFAULT_REVERSE),
+			"reverse_" + Game.getSettings().getString(SettingsConstant.REVERSE, SettingsConstant.DEFAULT_REVERSE),
 			R.drawable.class));
 
-	public Card(Context context, Suit suit, Number number) {
+	public Card(Context context, Suit suit, Rank number) {
 		super(context);
 		this.suit = suit;
 		this.number = number;
@@ -50,7 +50,7 @@ public class Card extends ImageView {
 		setId(Game.getUniqueId());
 	}
 
-	public Card(Context context, Suit suit, Number number, boolean faceUp) {
+	public Card(Context context, Suit suit, Rank number, boolean faceUp) {
 		super(context);
 		this.suit = suit;
 		this.number = number;
@@ -76,11 +76,11 @@ public class Card extends ImageView {
 		this.suit = suit;
 	}
 
-	public Number getNumber() {
+	public Rank getNumber() {
 		return number;
 	}
 
-	public void setNumber(Number number) {
+	public void setNumber(Rank number) {
 		this.number = number;
 	}
 
@@ -91,10 +91,10 @@ public class Card extends ImageView {
 	public void setFaceup(boolean faceup) {
 		this.faceup = faceup;
 		if (faceup) {
-			String index = Game.getSettings().getString(Constant.SETT_CARD_SET, Constant.DEFAULT_CARD_SET);
+			String index = Game.getSettings().getString(SettingsConstant.CARD_SET, SettingsConstant.DEFAULT_CARD_SET);
 			setImageResource(Utils.getResId(suit.getName() + "_" + number.getId() + "_" + index, R.drawable.class));
 		} else {
-			String index = Game.getSettings().getString(Constant.SETT_REVERSE, Constant.DEFAULT_REVERSE);
+			String index = Game.getSettings().getString(SettingsConstant.REVERSE, SettingsConstant.DEFAULT_REVERSE);
 			setImageResource(Utils.getResId("reverse_" + index, R.drawable.class));
 		}
 	}
@@ -212,7 +212,7 @@ class CardInstanceCreator implements InstanceCreator<Card> {
 
 	@Override
 	public Card createInstance(Type arg0) {
-		return new Card(Game.getAppContext(), Suit.SPADES, Number.ACE);
+		return new Card(Game.getAppContext(), Suit.SPADES, Rank.ACE);
 	}
 
 }
@@ -236,7 +236,7 @@ class CardDeserializer implements JsonDeserializer<Card> {
 	public Card deserialize(JsonElement arg0, Type arg1, JsonDeserializationContext arg2) throws JsonParseException {
 		JsonObject object = arg0.getAsJsonObject();
 		Suit suit = Suit.values()[object.get("suit").getAsInt()];
-		Number number = Number.values()[object.get("number").getAsInt()];
+		Rank number = Rank.values()[object.get("number").getAsInt()];
 		Boolean faceUp = object.get("faceup").getAsBoolean();
 		Card card = new Card(Game.getAppContext(), suit, number, faceUp);
 		return card;

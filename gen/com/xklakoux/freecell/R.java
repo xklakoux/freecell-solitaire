@@ -33,6 +33,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
+ Default screen margins, per the Android Design guidelines. 
          */
         public static final int activity_horizontal_margin=0x7f080000;
         public static final int activity_vertical_margin=0x7f080001;
@@ -142,34 +143,35 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int reverse_icon_1=0x7f02005f;
         public static final int reverse_icon_2=0x7f020060;
         public static final int reverse_icon_3=0x7f020061;
-        public static final int spades_10_0=0x7f020062;
-        public static final int spades_10_1=0x7f020063;
-        public static final int spades_11_0=0x7f020064;
-        public static final int spades_11_1=0x7f020065;
-        public static final int spades_12_0=0x7f020066;
-        public static final int spades_12_1=0x7f020067;
-        public static final int spades_13_0=0x7f020068;
-        public static final int spades_13_1=0x7f020069;
-        public static final int spades_13_icon_0=0x7f02006a;
-        public static final int spades_13_icon_1=0x7f02006b;
-        public static final int spades_1_0=0x7f02006c;
-        public static final int spades_1_1=0x7f02006d;
-        public static final int spades_2_0=0x7f02006e;
-        public static final int spades_2_1=0x7f02006f;
-        public static final int spades_3_0=0x7f020070;
-        public static final int spades_3_1=0x7f020071;
-        public static final int spades_4_0=0x7f020072;
-        public static final int spades_4_1=0x7f020073;
-        public static final int spades_5_0=0x7f020074;
-        public static final int spades_5_1=0x7f020075;
-        public static final int spades_6_0=0x7f020076;
-        public static final int spades_6_1=0x7f020077;
-        public static final int spades_7_0=0x7f020078;
-        public static final int spades_7_1=0x7f020079;
-        public static final int spades_8_0=0x7f02007a;
-        public static final int spades_8_1=0x7f02007b;
-        public static final int spades_9_0=0x7f02007c;
-        public static final int spades_9_1=0x7f02007d;
+        public static final int shadow_background=0x7f020062;
+        public static final int spades_10_0=0x7f020063;
+        public static final int spades_10_1=0x7f020064;
+        public static final int spades_11_0=0x7f020065;
+        public static final int spades_11_1=0x7f020066;
+        public static final int spades_12_0=0x7f020067;
+        public static final int spades_12_1=0x7f020068;
+        public static final int spades_13_0=0x7f020069;
+        public static final int spades_13_1=0x7f02006a;
+        public static final int spades_13_icon_0=0x7f02006b;
+        public static final int spades_13_icon_1=0x7f02006c;
+        public static final int spades_1_0=0x7f02006d;
+        public static final int spades_1_1=0x7f02006e;
+        public static final int spades_2_0=0x7f02006f;
+        public static final int spades_2_1=0x7f020070;
+        public static final int spades_3_0=0x7f020071;
+        public static final int spades_3_1=0x7f020072;
+        public static final int spades_4_0=0x7f020073;
+        public static final int spades_4_1=0x7f020074;
+        public static final int spades_5_0=0x7f020075;
+        public static final int spades_5_1=0x7f020076;
+        public static final int spades_6_0=0x7f020077;
+        public static final int spades_6_1=0x7f020078;
+        public static final int spades_7_0=0x7f020079;
+        public static final int spades_7_1=0x7f02007a;
+        public static final int spades_8_0=0x7f02007b;
+        public static final int spades_8_1=0x7f02007c;
+        public static final int spades_9_0=0x7f02007d;
+        public static final int spades_9_1=0x7f02007e;
     }
     public static final class id {
         public static final int LinearLayout02=0x7f0c0020;
@@ -282,9 +284,23 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         AppBaseTheme from BOTH res/values/styles.xml and
         res/values-v11/styles.xml on API 14+ devices.
     
+
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    
+
+        Base application theme for API 11+. This theme completely replaces
+        AppBaseTheme from res/values/styles.xml on API 11+ devices.
+    
+
+        Base application theme for API 14+. This theme completely replaces
+        AppBaseTheme from BOTH res/values/styles.xml and
+        res/values-v11/styles.xml on API 14+ devices.
+    
          */
         public static final int AppBaseTheme=0x7f0a0000;
         /**  Application theme. 
+ Application theme. 
          */
         public static final int AppTheme=0x7f0a0001;
         public static final int MyActionBar=0x7f0a0002;

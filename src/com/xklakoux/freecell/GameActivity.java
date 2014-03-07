@@ -44,7 +44,7 @@ import com.squareup.otto.Subscribe;
 import com.xklakoux.freecell.enums.Difficulty;
 import com.xklakoux.freecell.enums.GameState;
 import com.xklakoux.freecell.enums.Suit;
-import com.xklakoux.freecell.enums.Number;
+import com.xklakoux.freecell.enums.Rank;
 
 public class GameActivity extends Activity implements OnSharedPreferenceChangeListener {
 
@@ -140,9 +140,9 @@ public class GameActivity extends Activity implements OnSharedPreferenceChangeLi
 	private void initSettings() {
 		prefs = Game.getSettings();
 
-		chosenDifficulty = Difficulty.valueOf(prefs.getString(Constant.SETT_DIFFICULTY, "EASY").toUpperCase());
+		chosenDifficulty = Difficulty.valueOf(prefs.getString(SettingsConstant.DIFFICULTY, "EASY").toUpperCase());
 
-		chosenOrientation = prefs.getString(Constant.SETT_ORIENTATION, Constant.DEFAULT_ORIENTATION);
+		chosenOrientation = prefs.getString(SettingsConstant.ORIENTATION, SettingsConstant.DEFAULT_ORIENTATION);
 		if (chosenOrientation.equals("horizontal")) {
 			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
 		} else if (chosenOrientation.equals("vertical")) {
@@ -151,13 +151,13 @@ public class GameActivity extends Activity implements OnSharedPreferenceChangeLi
 			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
 		}
 
-		chosenSound = prefs.getBoolean(Constant.SETT_SOUNDS, true);
-		chosenUnrestrictedDeal = prefs.getBoolean(Constant.SETT_UNRES_DEAL, false);
-		chosenUnrestrictedUndo = prefs.getBoolean(Constant.SETT_UNRES_UNDO, false);
+		chosenSound = prefs.getBoolean(SettingsConstant.SOUNDS, true);
+		chosenUnrestrictedDeal = prefs.getBoolean(SettingsConstant.UNRES_DEAL, false);
+		chosenUnrestrictedUndo = prefs.getBoolean(SettingsConstant.UNRES_UNDO, false);
 
-		chosenHints = prefs.getBoolean(Constant.SETT_HINTS, true);
+		chosenHints = prefs.getBoolean(SettingsConstant.HINTS, true);
 
-		String speed = prefs.getString(Constant.SETT_ANIMATION, "slow");
+		String speed = prefs.getString(SettingsConstant.ANIMATION, "slow");
 		if (speed.equals("slow")) {
 			chosenAnimationSpeed = 1.0f;
 		} else if (speed.equals("fast")) {
@@ -250,7 +250,7 @@ public class GameActivity extends Activity implements OnSharedPreferenceChangeLi
 			pile.refresh();
 		}
 		deck.refresh();
-		String backgroundResName = Game.getSettings().getString(Constant.SETT_BACKGROUND, Constant.DEFAULT_BACKGROUND);
+		String backgroundResName = Game.getSettings().getString(SettingsConstant.BACKGROUND, SettingsConstant.DEFAULT_BACKGROUND);
 		root.setBackgroundDrawable((getResources().getDrawable((Utils.getResId("background_" + backgroundResName,
 				R.drawable.class)))));
 
@@ -264,7 +264,7 @@ public class GameActivity extends Activity implements OnSharedPreferenceChangeLi
 
 		int[] location = new int[2];
 		pile.getLastTrueChild().getLocationOnScreen(location);
-		final Card fakeCard = new Card(GameActivity.this, Suit.SPADES, Number.ACE);
+		final Card fakeCard = new Card(GameActivity.this, Suit.SPADES, Rank.ACE);
 		root.addView(fakeCard);
 		setCardSize(fakeCard);
 		fakeCard.setOnTouchListener(null);
@@ -515,7 +515,7 @@ public class GameActivity extends Activity implements OnSharedPreferenceChangeLi
 			Game.setUndid();
 			Game.getStatsManager().updatePoints(StatsManager.SET_UNDID);
 
-			for (Number num : Number.values()) {
+			for (Rank num : Rank.values()) {
 				Card card = new Card(GameActivity.this, move.getSuit(), num);
 				card.setFaceup(true);
 				draggedParent.addCard(card);
@@ -697,7 +697,7 @@ public class GameActivity extends Activity implements OnSharedPreferenceChangeLi
 
 		initSettings();
 
-		//		if (key.equals(Constant.SETT_DIFFICULTY)) {
+		//		if (key.equals(Constant.DIFFICULTY)) {
 		//			if (sharedPreferences.getBoolean("firstTime", false)) {
 		//				if (Game.getState() != GameState.DEALING) {
 		//					setupNewGame();
@@ -707,15 +707,15 @@ public class GameActivity extends Activity implements OnSharedPreferenceChangeLi
 		//				e.putBoolean("firstTime", true);
 		//				e.commit();
 		//			}
-		if (key.equals(Constant.SETT_BACKGROUND)) {
-			String backgroundResName = Game.getSettings().getString(Constant.SETT_BACKGROUND,
-					Constant.DEFAULT_BACKGROUND);
+		if (key.equals(SettingsConstant.BACKGROUND)) {
+			String backgroundResName = Game.getSettings().getString(SettingsConstant.BACKGROUND,
+					SettingsConstant.DEFAULT_BACKGROUND);
 			Drawable background = getResources().getDrawable(
 					(Utils.getResId("background_" + backgroundResName, R.drawable.class)));
 			root.setBackgroundDrawable(background);
 
-		} else if (key.equals(Constant.SETT_HINTS) || key.equals(Constant.SETT_CARD_SET)
-				|| key.equals(Constant.SETT_REVERSE)) {
+		} else if (key.equals(SettingsConstant.HINTS) || key.equals(SettingsConstant.CARD_SET)
+				|| key.equals(SettingsConstant.REVERSE)) {
 
 			for (Pile pile : pileLayouts) {
 				pile.refresh();

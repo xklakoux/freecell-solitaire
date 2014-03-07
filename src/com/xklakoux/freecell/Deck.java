@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.xklakoux.freecell.enums.Difficulty;
-import com.xklakoux.freecell.enums.Number;
+import com.xklakoux.freecell.enums.Rank;
 import com.xklakoux.freecell.enums.Suit;
 
 /**
@@ -50,7 +50,7 @@ public class Deck extends RelativeLayout {
 	public void refresh() {
 		int i = 0;
 
-		String reverseResName = Game.getSettings().getString(Constant.SETT_REVERSE, Constant.DEFAULT_REVERSE);
+		String reverseResName = Game.getSettings().getString(SettingsConstant.REVERSE, SettingsConstant.DEFAULT_REVERSE);
 		for (ImageView ten : tens) {
 			ten.setImageResource((Utils.getResId("reverse_" + reverseResName, R.drawable.class)));
 
@@ -100,7 +100,7 @@ public class Deck extends RelativeLayout {
 		}
 
 		int i = 0;
-		String reverseResName = Game.getSettings().getString(Constant.SETT_REVERSE, Constant.DEFAULT_REVERSE);
+		String reverseResName = Game.getSettings().getString(SettingsConstant.REVERSE, SettingsConstant.DEFAULT_REVERSE);
 
 		for (ImageView ten : tens) {
 			ten.setImageResource((Utils.getResId("reverse_" + reverseResName, R.drawable.class)));
@@ -139,7 +139,7 @@ public class Deck extends RelativeLayout {
 
 		for (int i = 0; i < suits.length; i++) {
 			for (int j = 0; j < suits[i]; j++) {
-				for (Number num : Number.values()) {
+				for (Rank num : Rank.values()) {
 					cards.add(new Card(context, Suit.values()[i], num));
 
 				}
